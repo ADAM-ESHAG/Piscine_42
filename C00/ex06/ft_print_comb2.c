@@ -5,87 +5,71 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moadam-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 22:27:02 by moadam-e          #+#    #+#             */
-/*   Updated: 2023/02/10 11:29:30 by moadam-e         ###   ########.fr       */
+/*   Created: 2023/02/26 13:10:45 by moadam-e          #+#    #+#             */
+/*   Updated: 2023/02/26 14:26:45 by moadam-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+void	ft_putchar(int c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_print_num(char c, char d)
+void	ft_print(char w, char x, char y, char z)
 {
-	c = '10;
-	while (c <= '9')
+	ft_putchar(w);
+	ft_putchar(x);
+	ft_putchar(' ');
+	ft_putchar(y);
+	ft_putchar(z);
+	if (!(w == '9' && x == '8' && y == '9' && z == '9'))
 	{
-		d = '1';
-		while (d <= '9')
-		{
-			ft_putchar(c);
-			ft_putchar(d);
-			if (!(c == '9' && d == '9'))
-			{
-				ft_putchar(',');
-				ft_putchar(' ');
-	
-			}
-			b++;
-		}
-		c++;
+		ft_putchar(',');
+		ft_putchar(' ');
 	}
-
 }
 
-void	ft_print_numbers(char a, char b, char c, char d)
+void	ft_print_first_two(int w, int x, int y, int z)
 {
-	a = '0';
-	while (a <= '9')
+	w = '0';
+	while (w <= '9')
 	{
-		b = '0';
-		while (b <= '8')
+		x = '0';
+		while (x <= '8')
 		{
-			c = '0';
-			while (c <= '9')
+			y = '0';
+			while (y <= '9')
 			{
-				d = '1';
-				while (d <= '9')
+				z = '1';
+				while (z <= '9')
 				{
-					ft_putchar(a);
-					ft_putchar(b);
-					ft_putchar(' ');
-					ft_putchar(c);
-					ft_putchar(d);
-					if (!(a == '9' && b == '8' && c == '9' && d == '9'))
-					{
-						ft_putchar(',');
-						ft_putchar(' ');
-					}
-					d++;
+					ft_print(w, x, y, z);
+					z++;
 				}
-				c++;
+				y++;
 			}
-			b++;
+			x++;
 		}
-		a++;
+		w++;
 	}
-	ft_putchar('\n');
 }
 
 void	ft_print_comb2(void)
 {
-	char	a;
-	char	b;
-	char	z;
-	char	y;
+	int	w;
+	int	x;
+	int	y;
+	int	z;
 
-	a = '0';
-	b = '0';
-	z = '0';
-	y = '1';
-	ft_print_numbers(a, b, z, y);
+	ft_print_first_two(w, x, y, z);
+	ft_putchar('\n');
 }
+/*
+int	main(void)
+{
+	ft_print_comb2();
+	return (0);
+}*/

@@ -1,47 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moadam-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 17:35:09 by moadam-e          #+#    #+#             */
-/*   Updated: 2023/02/26 18:27:02 by moadam-e         ###   ########.fr       */
+/*   Created: 2023/02/26 14:29:43 by moadam-e          #+#    #+#             */
+/*   Updated: 2023/02/26 14:52:19 by moadam-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdio.h>
 
-void	ft_sort_int_tab(int *tab, int size)
+void	ft_putchar(char c)
 {
-	int	i;
-	int	swap;
+	write(1, &c, 1);
+}
 
-	i = 0;
-	while (size >= 0)
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		while (i < size - 1)
-		{
-			if (tab[i] > tab[i + 1])
-			{
-				swap = tab[i];
-				tab[i] = tab[i + 1];
-				tab[i + 1] = swap;	
-			}
-			i++;
-		}
-		i = 0;
-		size--;
+		ft_putchar('-');
+		ft_putchar('2');
+		ft_putnbr(47483648);
+	}
+	else if (nb < 0)
+	{
+		ft_putchar('-');
+		ft_putnbr(-nb);
+	}
+	else if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+	{
+		ft_putchar(nb + 48);
 	}
 }
-
+/*
 int	main(void)
 {
-	int	tab[5] = {5, 4, 3, 2, 1};
-	int	size;
+	int	nb;
 
-	size = 5;
-	ft_sort_int_tab(tab, size);
-	printf("%d, %d, %d, %d, %d", tab[0], tab[1], tab[2], tab[3], tab[4]);
+	nb = 10;
+	ft_putnbr(nb);
+	ft_putchar('\n');
 	return (0);
-}
+}*/

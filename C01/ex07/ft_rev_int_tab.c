@@ -5,38 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: moadam-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 11:46:51 by moadam-e          #+#    #+#             */
-/*   Updated: 2023/02/14 10:42:45 by moadam-e         ###   ########.fr       */
+/*   Created: 2023/02/26 15:54:26 by moadam-e          #+#    #+#             */
+/*   Updated: 2023/02/26 17:33:44 by moadam-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
 
 void	ft_rev_int_tab(int *tab, int size)
 {
-	int	i;
 	int	swap;
+	int	j;
 
-	i = 0;
+	j = 0;
 	size--;
-	while (i < size)
+	while (j < size)
 	{
-		swap = tab[i];
-		tab[i] = tab[size];
+		swap = tab[j];
+		tab[j] = tab[size];
 		tab[size] = swap;
-		i++;
+		j++;
 		size--;
 	}
 }
-/*
-int	main()
+
+int	main(void)
 {
-	int	tab[5] = {3,1,0,2,4};
 	int	size;
+	int	tab[5] = {1, 2, 3, 4, 5};
 
 	size = 5;
 	ft_rev_int_tab(tab, size);
 	printf("%d, %d, %d, %d, %d", tab[0], tab[1], tab[2], tab[3], tab[4]);
 	return (0);
-}*/
+}
